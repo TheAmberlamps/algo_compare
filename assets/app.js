@@ -57,9 +57,11 @@ const rand_M = document.getElementById("random_math");
 const rand_Xor = document.getElementById("random_xorshift");
 
 rand_M.addEventListener("click", () => {
+  var now = new Date();
+  var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  console.log("Starting time: " + time);
   console.time("Fisher-Yates");
   let amnt = document.getElementById("amount");
-  console.log(amnt.value);
   // The Fisher-Yates algorithm
   for (var x = 0; x < amnt.value; x++) {
     for (var i = deck.length - 1; i > 0; i--) {
@@ -68,7 +70,14 @@ rand_M.addEventListener("click", () => {
       deck[i] = deck[j];
       deck[j] = temp;
     }
-    console.log("Calculation: " + x + ", Deck: " + deck.length);
+    // console.log("Calculation: " + x + ", Deck: " + deck.length);
   }
   console.timeEnd("Fisher-Yates");
+  if (deck.length === 52) {
+    now = new Date();
+    time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    console.log("Ending time: " + time);
+  } else {
+    console.log("Error occurred!");
+  }
 });
