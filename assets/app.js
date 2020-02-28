@@ -1,3 +1,5 @@
+var xorshift = require("xorshift");
+
 let deck = [
   1,
   2,
@@ -60,9 +62,9 @@ rand_M.addEventListener("click", () => {
   var now = new Date();
   var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   console.log("Starting time: " + time);
-  console.time("Fisher-Yates");
+  console.time("Math.random");
   let amnt = document.getElementById("amount");
-  // The Fisher-Yates algorithm
+  // Math.random
   for (var x = 0; x < amnt.value; x++) {
     for (var i = deck.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -70,9 +72,33 @@ rand_M.addEventListener("click", () => {
       deck[i] = deck[j];
       deck[j] = temp;
     }
-    // console.log("Calculation: " + x + ", Deck: " + deck.length);
   }
-  console.timeEnd("Fisher-Yates");
+  console.timeEnd("Math.random");
+  if (deck.length === 52) {
+    now = new Date();
+    time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    console.log("Ending time: " + time);
+  } else {
+    console.log("Error occurred!");
+  }
+});
+
+rand_Xor.addEventListener("click", () => {
+  var now = new Date();
+  var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  console.log("Starting time: " + time);
+  console.time("Xorshift");
+  let amnt = document.getElementById("amount");
+  // The Xorshift algorithm
+  for (var x = 0; x < amnt.value; x++) {
+    for (var i = deck.length - 1; i > 0; i--) {
+      var j = Math.floor(xorshift.random() * (i + 1));
+      var temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
+    }
+  }
+  console.timeEnd("Xorshift");
   if (deck.length === 52) {
     now = new Date();
     time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
