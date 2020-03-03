@@ -78,8 +78,7 @@ rand_M.addEventListener("click", () => {
   } else if (amnt.value > 10000) {
     alert("Please enter a value between 1 and 10,000.");
   } else {
-    console.log("Starting time: " + time);
-    console.time("Math.random");
+    var t1 = performance.now();
     for (var x = 0; x < amnt.value; x++) {
       for (var i = deck.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -88,7 +87,7 @@ rand_M.addEventListener("click", () => {
         deck[j] = temp;
       }
     }
-    var duration = console.timeEnd("Math.random");
+    var t2 = performance.now();
     if (deck.length === 52) {
       now = new Date();
       newTime =
@@ -99,12 +98,11 @@ rand_M.addEventListener("click", () => {
         now.getSeconds() +
         ":" +
         now.getMilliseconds();
-      console.log("Ending time: " + newTime);
       start.innerHTML = "Starting time: " + time;
-      dur.innerHTML = "Duration: " + duration;
+      dur.innerHTML = "Duration: " + (t2 - t1) + "ms";
       end.innerHTML = "Ending time: " + newTime;
     } else {
-      console.log("Error occurred!");
+      alert("Error occurred!");
     }
   }
 });
@@ -128,8 +126,7 @@ rand_Xor.addEventListener("click", () => {
   } else if (amnt.value > 10000) {
     alert("Please enter a value between 1 and 10,000.");
   } else {
-    console.log("Starting time: " + time);
-    console.time("Xorshift");
+    var t1 = performance.now();
     // The Xorshift algorithm
     for (var x = 0; x < amnt.value; x++) {
       for (var i = deck.length - 1; i > 0; i--) {
@@ -139,7 +136,7 @@ rand_Xor.addEventListener("click", () => {
         deck[j] = temp;
       }
     }
-    var duration = console.timeEnd("Xorshift");
+    var t2 = performance.now();
     if (deck.length === 52) {
       now = new Date();
       newTime =
@@ -150,12 +147,11 @@ rand_Xor.addEventListener("click", () => {
         now.getSeconds() +
         ":" +
         now.getMilliseconds();
-      console.log("Ending time: " + time);
       start.innerHTML = "Starting time: " + time;
-      dur.innerHTML = "Duration: " + duration;
+      dur.innerHTML = "Duration: " + (t2 - t1) + "ms";
       end.innerHTML = "Ending time: " + newTime;
     } else {
-      console.log("Error occurred!");
+      alert("Error occurred!");
     }
   }
 });
