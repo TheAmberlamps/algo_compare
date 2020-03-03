@@ -110,6 +110,9 @@ rand_M.addEventListener("click", () => {
 
 rand_Xor.addEventListener("click", () => {
   let amnt = document.getElementById("amount");
+  let start = document.getElementById("xor_start");
+  let dur = document.getElementById("xor_dur");
+  let end = document.getElementById("xor_end");
   var now = new Date();
   var time =
     now.getHours() +
@@ -135,10 +138,10 @@ rand_Xor.addEventListener("click", () => {
         deck[j] = temp;
       }
     }
-    console.timeEnd("Xorshift");
+    var duration = console.timeEnd("Xorshift");
     if (deck.length === 52) {
       now = new Date();
-      time =
+      newTime =
         now.getHours() +
         ":" +
         now.getMinutes() +
@@ -147,6 +150,9 @@ rand_Xor.addEventListener("click", () => {
         ":" +
         now.getMilliseconds();
       console.log("Ending time: " + time);
+      start.innerHTML = "Starting time: " + time;
+      dur.innerHTML = "Duration: " + duration;
+      end.innerHTML = "Ending time: " + newTime;
     } else {
       console.log("Error occurred!");
     }
