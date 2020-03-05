@@ -61,6 +61,8 @@ const rand_Xor = document.getElementById("random_xorshift");
 
 rand_M.addEventListener("click", () => {
   let amnt = document.getElementById("amount");
+  let tit = document.getElementById("rando_title");
+  let num = document.getElementById("rando_num");
   let start = document.getElementById("rando_start");
   let dur = document.getElementById("rando_dur");
   let end = document.getElementById("rando_end");
@@ -98,9 +100,11 @@ rand_M.addEventListener("click", () => {
         now.getSeconds() +
         ":" +
         now.getMilliseconds();
-      start.innerHTML = "Starting time: " + time;
-      dur.innerHTML = "Duration: " + (t2 - t1) + "ms";
-      end.innerHTML = "Ending time: " + newTime;
+      tit.innerHTML = "<p>Math.random shuffle:</p>";
+      num.innerHTML = "<p>Number of shuffles: " + amnt.value + "</p>";
+      start.innerHTML = "<p>Starting time: " + time + "</p>";
+      dur.innerHTML = "<p>Duration: " + (t2 - t1) + "ms</p>";
+      end.innerHTML = "<p>Ending time: " + newTime + "</p>";
     } else {
       alert("Error occurred!");
     }
@@ -109,6 +113,8 @@ rand_M.addEventListener("click", () => {
 
 rand_Xor.addEventListener("click", () => {
   let amnt = document.getElementById("amount");
+  let tit = document.getElementById("xor_title");
+  let num = document.getElementById("xor_num");
   let start = document.getElementById("xor_start");
   let dur = document.getElementById("xor_dur");
   let end = document.getElementById("xor_end");
@@ -147,9 +153,11 @@ rand_Xor.addEventListener("click", () => {
         now.getSeconds() +
         ":" +
         now.getMilliseconds();
-      start.innerHTML = "Starting time: " + time;
-      dur.innerHTML = "Duration: " + (t2 - t1) + "ms";
-      end.innerHTML = "Ending time: " + newTime;
+      tit.innerHTML = "<p>Xorshift shuffle:</p>";
+      num.innerHTML = "<p>Number of shuffles: " + amnt.value + "</p>";
+      start.innerHTML = "<p>Starting time: " + time + "</p>";
+      dur.innerHTML = "<p>Duration: " + (t2 - t1) + "ms</p>";
+      end.innerHTML = "<p>Ending time: " + newTime + "</p>";
     } else {
       alert("Error occurred!");
     }

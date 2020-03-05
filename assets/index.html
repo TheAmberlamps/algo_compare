@@ -3,26 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Algo Compare</title>
   </head>
   <body>
-    <label for="amount"></label>
+    <p>
+      Welcome to Algo Compare. This application is designed to test the relative
+      efficiency of random number generation algorithms by having them perform
+      the same task, in this case shuffling a "deck of cards" using the
+      Fisher-Yates shuffle.
+    </p>
+    <p>
+      Enter the number of shuffles you want to execute, and then run the test
+      with either Javascript's inbuilt "Math.random" method or using the
+      Xorshift algorithm. The results of the test are then displayed below.
+    </p>
+    <p>Please enter a number between 1 and 10,000, and begin your testing!</p>
     <div id="start">
       <input type="number" id="amount" min="1" max="10000" />
       <button id="random_math" type="button">Math.random</button>
       <button id="random_xorshift" type="button">Xorshift</button>
     </div>
-    <div id="rando_results">
-      <div id="rando_start"></div>
-      <div id="rando_dur"></div>
-      <div id="rando_end"></div>
+    <div id="res_wrap">
+      <div id="rando_results">
+        <div id="rando_title"></div>
+        <div id="rando_num"></div>
+        <div id="rando_start"></div>
+        <div id="rando_dur"></div>
+        <div id="rando_end"></div>
+      </div>
+      <div id="xor_results">
+        <div id="xor_title"></div>
+        <div id="xor_num"></div>
+        <div id="xor_start"></div>
+        <div id="xor_dur"></div>
+        <div id="xor_end"></div>
+      </div>
     </div>
-    <div id="xor_results">
-      <div id="xor_start"></div>
-      <div id="xor_dur"></div>
-      <div id="xor_end"></div>
-    </div>
-    <div id="xorshift_output"></div>
     <script src="bundle.js"></script>
   </body>
 </html>

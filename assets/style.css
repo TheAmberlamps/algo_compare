@@ -1,0 +1,41 @@
+p {
+  text-align: center;
+}
+
+#start {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 0px;
+}
+
+#amount {
+  border: 20px 20px 20px 20px;
+}
+
+#random_math {
+  border-width: 20px 20px 20px 20px;
+  margin: 20px;
+}
+
+#random_xorshift {
+  border-width: 20px 20px 20px 20px;
+  margin: 20px;
+}
+
+#res_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+#rando_results {
+  padding: 20px;
+}
+
+#xor_results {
+  padding: 20px;
+}
